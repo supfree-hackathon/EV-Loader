@@ -11,6 +11,7 @@ django-crispy-forms = "==1.8.1"
 djangorestframework = "*"
 markdown = "*"
 django-filter = "*"
+requests = "*"
 
 [requires]
 python_version = "3.7"

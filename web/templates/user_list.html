@@ -17,7 +17,9 @@
 Token Amount : {{ user.profile.tokens_amount }}
 </div>
 <div class="card-footer text-center text-muted">
-<a href="#">Edit</a> | <a href="#">Delete</a>
+    <form>
+        <button formaction="{% url 'user_send_tokens' user.id %}">Send Tokens</button>
+    </form>
 </div>
 </div>
 <br />
