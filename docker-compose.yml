@@ -1,0 +1,19 @@
+version: "3.1"
+   
+services:
+  nginx:
+    image: nginx:latest
+    volumes:
+      - ./nginx.conf:/etc/nginx/conf.d/default.conf
+    ports:
+      - 80:80
+      - 443:443
+
+  web:
+    build: ./web
+    command: python manage.py runserver 0.0.0.0:8000
+
+  evloader:
+    build: ./evloader
+    command: python manage.py runserver 0.0.0.0:8000
+
