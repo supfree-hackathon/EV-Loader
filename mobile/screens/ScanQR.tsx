@@ -7,7 +7,7 @@ import { Text, View } from '../components/Themed';
 export default function ScanQR() {
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>Σκανάρετε κωδικό QR</Text>
+      <Text style={styles.title}>Σκανάρετε κωδικό QR ή Barcode</Text>
       <View style={styles.separator} lightColor="#eee" darkColor="rgba(255,255,255,0.1)" />
       <EditScreenInfo path="/screens/ScanQR.tsx" />
     </View>
