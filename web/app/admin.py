@@ -12,7 +12,7 @@ class ProfileInline(admin.StackedInline):
 
 class CustomUserAdmin(UserAdmin):
     inlines = (ProfileInline, )
-    list_display = ('username', 'email', 'first_name', 'last_name', 'is_staff', 'get_tokens_amount')
+    list_display = ('id','username', 'email', 'first_name', 'last_name', 'is_staff', 'get_tokens_amount')
     list_select_related = ('profile', )
 
     def get_tokens_amount(self, instance):
