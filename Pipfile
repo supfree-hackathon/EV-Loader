@@ -6,7 +6,7 @@ verify_ssl = true
 [dev-packages]
 
 [packages]
-django = "*"
+django = "==3.1"
 djangorestframework = "*"
 markdown = "*"
 django-filter = "*"
