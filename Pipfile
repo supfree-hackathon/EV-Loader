@@ -7,6 +7,7 @@ verify_ssl = true
 
 [packages]
 django = "==3.1"
+django-crispy-forms = "==1.8.1"
 djangorestframework = "*"
 markdown = "*"
 django-filter = "*"
