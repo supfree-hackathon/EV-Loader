@@ -3,6 +3,7 @@ EV-Loader
 
 
 ## Project Summary
+![alt text](./project_summary.png)
 
 
 ## Requirements
