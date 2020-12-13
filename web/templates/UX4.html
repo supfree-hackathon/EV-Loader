@@ -1,5 +1,4 @@
 <!-- templates/homepage.html -->
-
 {% extends 'base.html' %}
 {% block content %}
 <div>
@@ -10,7 +9,16 @@
             <h4 style="font-weight: normal; margin-top: 40px;">10 Πόντοι προστέθηκαν στο λογαριασμό σου</h4>
             <h4 style="font-weight: normal; margin-top: 40px;">Έχεις συνολικά 260 πόντους</h4>
             <div style="margin-top: 20px;">
-                <button type="button" class="btn btn-primary btn-lg" style="background-color: #F18D0F; color: white;">Εξαργύρωσε</button>
+                <form>
+                    {% csrf_token %}
+                    <button 
+                    type="submit" 
+                    formmethod="post"
+                    class="btn btn-primary btn-lg" 
+                    style="background-color: #F18D0F; color: white;"
+                    formaction="{% url 'user_send_tokens' user.id %}"
+                    >Εξαργύρωσε</button>
+                </form>
             </div>
         </div>
     </div>
