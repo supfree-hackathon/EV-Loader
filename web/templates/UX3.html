@@ -1,0 +1,25 @@
+<!-- templates/homepage.html -->
+
+{% extends 'base.html' %}
+{% block content %}
+<div id="setTimeout()">
+<div class="row">
+    <div class="col" style="height: 470px;">
+        <div style="margin: 50px;">
+            <h2 style="font-weight: normal;">Επεξεργασία…</h2>
+        </div>
+    </div>
+    <div class="col" style="border-left: 5px solid; background-image: url('../static/img/HomePic.jpg'); background-size: cover;">
+    </div>
+</div>
+<div class="row" style="background-color: #f3f4f5;">
+    <div class="col" style="height: 172px;">
+    </div>
+</div>
+</div>
+<script>
+    setTimeout(function(){
+        window.location.href = '/UX4';
+    }, 5000);
+</script>
+{% endblock content %}
