@@ -37,14 +37,17 @@
                 <h4 style="font-weight: normal; margin-top: 50px;">Επέλεξε μια από τις επιλογές στα δεξία</h4>
             </div>
             <div style="margin: 50px;">
-                <button  
-                type="button" 
-                class="btn btn-primary btn-lg" 
-                style="background-color: #F18D0F; color: white; margin-top: 50px;"
-                formaction="{% url 'user_send_tokens' user.id %}"
-                >
-                Εξαργύρωση
-                </button>
+                <form>
+                    {% csrf_token %}
+                    <button  
+                    type="submit" 
+                    class="btn btn-primary btn-lg" 
+                    style="background-color: #F18D0F; color: white; margin-top: 50px;"
+                    formaction="{% url 'user_send_tokens' user.id %}"
+                    >
+                    Εξαργύρωση
+                    </button>
+                </form>
             </div>
         </div>
         <div class="col" style="border-left: 5px solid; background-image: url('../static/img/HomePic.jpg'); background-size: cover;">
@@ -52,6 +55,7 @@
     </div>
     <div class="row" style="background-color: #f3f4f5;">
         <div class="col" style="height: 172px;">
+            <h4 style="font-weight: normal; margin-top: 40px;margin-left: 40px;">Μάθε περισσότερα για τους τρόπους εξαργύρωσης</h4>
         </div>
     </div>
 </div>

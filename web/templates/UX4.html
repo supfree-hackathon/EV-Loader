@@ -7,7 +7,7 @@
         <div style="margin: 50px;">
             <h4 style="font-weight: normal;">Σε ευχαριστούμε που επαναχρησιμοποιείς το μπουκάλι σου.</h4>
             <h4 style="font-weight: normal; margin-top: 40px;">10 Πόντοι προστέθηκαν στο λογαριασμό σου</h4>
-            <h4 style="font-weight: normal; margin-top: 40px;">Έχεις συνολικά 260 πόντους</h4>
+            <h4 style="font-weight: normal; margin-top: 40px;">Έχεις συνολικά {{user.profile.tokens_amount}} πόντους</h4>
             <div style="margin-top: 20px;">
                 <form>
                     {% csrf_token %}
