@@ -11,4 +11,5 @@ path('user/<int:pk>/send_tokens/', UserSendTokensView.as_view(), name='user_send
 path('users/', include('django.contrib.auth.urls')),
 path('', TemplateView.as_view(template_name='home.html'),name='home'),
 path('signup/', SignUpView.as_view(), name='signup'),
+path('homepage/', TemplateView.as_view(template_name='split_screen.html'))
 ]
