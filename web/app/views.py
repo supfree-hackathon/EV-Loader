@@ -32,30 +32,30 @@ class UserSendTokensView(UpdateView):
         context = super(UserSendTokensView, self).get_context_data(**kwargs)
         current_user = User.objects.get(pk=self.kwargs['pk'])
 
-        # print("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@")
-        # print("The user email is : {} ".format(current_user.email))
+        print("The user email is : {} ".format(current_user.email))
 
         url = "https://sup.evloader.com/api/wallet/sup-points"
         payload = {
             "user_email": current_user.email,
             "token_amount": current_user.profile.tokens_amount
         }
+
         headers = {
             'Content-Type': 'application/json'
         }
         response = requests.request("POST", url, headers=headers, data=payload)
 
-        # print(response)
+        print(response)
+        # update the tokens_amount field
+        print("Tokens before : {} ".format(current_user.profile.tokens_amount))
+        current_user.profile.tokens_amount -= current_user.profile.tokens_amount
+        current_user.save()
+        print("Tokens after : {} ".format(current_user.profile.tokens_amount))
 
-        # update the token_amount field
-        # current_user.token_amount -= current_user.token_amount
-        # current_user.save()
+        context['user'] = current_user
 
-
-        context['user'] = user
-
-        return render(request, template_name, context)
-        #return context
+        #return render(requests.request, self.template_name, context)
+        return context
 
 
 

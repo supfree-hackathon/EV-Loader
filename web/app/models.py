@@ -40,7 +40,7 @@ class Profile(models.Model):
     tokens_amount=models.IntegerField("Tokens Amount of User", default=0)
 
     def __str__(self):
-        return self.user.username
+        return str(self.tokens_amount)
 
 
 

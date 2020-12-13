@@ -4,7 +4,8 @@
 
 {% block content %}
 {% if user.is_authenticated %}
-<p>Tokens send successfully for user {{user.first_name}} , {{user.last_name}} </p>
-
+<div style="margin: 0 auto; text-align:center; padding:1em;">
+<h1> Tokens send successfully for user: {{user.username}}!</h1> 
+</div>
 {% endif %}
 {% endblock content %}
