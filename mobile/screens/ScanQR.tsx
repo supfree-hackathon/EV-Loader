@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import { Text, View, StyleSheet, Button } from 'react-native';
+import { Text, View, StyleSheet, Button, Alert } from 'react-native';
 import { BarCodeScanner } from 'expo-barcode-scanner';
+import axios from 'axios';
+
 
 export default function ScanQR() {
   const [hasPermission, setHasPermission] = useState(null);
@@ -13,9 +15,45 @@ export default function ScanQR() {
     })();
   }, []);
 
+  const sendToEvLoader = (token_amount, user_email) => {
+    var config = {
+      method: 'post',
+      url: 'https://sup.evloader.com/api/wallet/sup-points',
+      headers: { 
+        'Content-Type': 'application/json'
+      },
+      data: {
+        user_email,
+        token_amount
+      }
+    };
+
+    axios(config)
+    .then(function (response) {
+      console.log(JSON.stringify(response.data));
+    })
+    .catch(function (error) {
+      console.log(error);
+    });
+  }
+
   const handleBarCodeScanned = ({ type, data }) => {
     setScanned(true);
-    alert(`Bar code with type ${type} and data ${data} has been scanned!`);
+    const token_amount = 20
+    const user_email = "email@example.com"
+    Alert.alert(
+      `Κερδίσατε ${token_amount} πόντους`,
+      "Μπορείτε να χρησιμοποιήσετε τους πόντους σε επόμενη αγορά, οικολογικών προϊόντων ή να φορτίσετε το ηλεκτρικό σας όχημα μέσω του EV Loader",
+      [
+        {
+          text: "Ακύρωση",
+          onPress: () => console.log("Cancel Pressed"),
+          style: "cancel"
+        },
+        { text: "Εξαργύρωση στο EV Loader", onPress: () => sendToEvLoader(token_amount, user_email) }
+      ],
+      { cancelable: false }
+    );
   };
 
   if (hasPermission === null) {

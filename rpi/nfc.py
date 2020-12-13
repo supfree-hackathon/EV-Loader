@@ -1,6 +1,20 @@
 import sys
 import binascii
 import Adafruit_PN532 as PN532
+import requests
+
+
+def sendPoints(token_amount, user_email):
+    url = "https://sup.evloader.com/api/wallet/sup-points"
+    payload = {
+        "user_email": user_email,
+        "token_amount": token_amount
+    }
+    headers = {
+        'Content-Type': 'application/json'
+    }
+    response = requests.request("POST", url, headers=headers, data=payload)
+
 
 def read_nfc():
     CS   = 18
@@ -21,6 +35,7 @@ def read_nfc():
         if uid is None:
             continue
         print('Found card with UID: 0x{0}'.format(binascii.hexlify(uid)))
+        sendPoints(token_amount, user_email)
         flag = False
         
 if __name__ == '__main__':
