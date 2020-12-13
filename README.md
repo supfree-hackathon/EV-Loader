@@ -6,10 +6,19 @@ EV-Loader
 
 
 ## Requirements
+* python 3
+* pipenv
 
 
 ## Instructions
 
+### Web App
+```
+cd web
+pipenv install
+pipenv shell
+python manage.py runserver
+```
 ### Mobile
 ```
 cd mobile
