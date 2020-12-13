@@ -1,0 +1,48 @@
+<!-- templates/homepage.html -->
+{% extends 'base.html' %}
+{% block content %}
+<div>
+<div class="row">
+    <div class="col" style="height: 470px;">
+        <div style="margin: 50px;">
+            <h4 style="font-weight: normal;">Σε ευχαριστούμε που επαναχρησιμοποιείς το μπουκάλι σου.</h4>
+            <h4 style="font-weight: normal; margin-top: 40px;">10 Πόντοι προστέθηκαν στο λογαριασμό σου</h4>
+            <h4 style="font-weight: normal; margin-top: 40px;">Έχεις συνολικά 260 πόντους</h4>
+            <div style="margin-top: 20px;">
+                <form>
+                    {% csrf_token %}
+                    <button 
+                    type="submit" 
+                    formmethod="post"
+                    class="btn btn-primary btn-lg" 
+                    style="background-color: #F18D0F; color: white;"
+                    formaction="{% url 'user_send_tokens' user.id %}"
+                    >Εξαργύρωσε</button>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="col" style="border-left: 1px solid; border-width: 5px;">
+    <div style="margin: 10px; margin-top: 50px;">
+        <div class="row">
+            <div 
+            class="col" 
+            style="background-image: url('https://www.vaza.gr/image/cache/data/img-mpoukalia/99-11-a_fyali-gyallini-diafani-100ml-900x600watermark.jpg');background-size: cover; height: 300px;">
+            </div>
+            <div class="col">
+                <h4 style="font-weight: normal; margin-top: 55px;">Id:221421</h4>
+                <h4 style="font-weight: normal;">Μπουκάλι</h4>
+                <h4 style="font-weight: normal;">Freeway Soft Drinks</h4>
+                <br>
+                <h4 style="font-weight: normal;">20 χρήσεις</h4>
+            </div>
+        </div>
+    </div>
+    </div>
+</div>
+<div class="row" style="background-color: #f3f4f5;">
+    <div class="col" style="height: 172px;">
+    </div>
+</div>
+</div>
+{% endblock content %}
