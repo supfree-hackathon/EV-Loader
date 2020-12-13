@@ -3,6 +3,11 @@
 {% extends 'base.html' %}
 {% load static %}
 {% block content %}
+
+
+{% if user.is_authenticated %}
+
+
 {% if user.profile.tokens_amount == 0 %}
 <div>
 <div class="row">
@@ -56,4 +61,14 @@
     </div>
 </div>
 {% endif %}
+
+
+{% else %}
+<p>You are not logged in</p>
+<a href="{% url 'login' %}">Log In</a> |
+<a href="{% url 'signup' %}">Sign Up</a>
+{% endif %}
+
+
+
 {% endblock content %}
